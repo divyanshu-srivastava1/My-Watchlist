@@ -7,10 +7,6 @@ const initialMoviesState = {
     showFavourite: false
 }
 export function movies (state = initialMoviesState, action){
-    // if(action.type==ADD_MOVIES){
-    //     return {...state, list: action.movies}
-    // }
-    // return state;
     switch(action.type){
         case ADD_MOVIES:
             state = {...state, list: action.movies}
@@ -55,12 +51,10 @@ export function addSearchResult (state = initialSearchState, action){
         case ADD_SEARCH_RESULT:
             state.showResult=true
             state.result=action.movies
-            //console.log(action.movies)
             return state
         case CLEAR_SEARCH:
             state.showResult=false
             state.result=[]
-            //console.log(action.movies)
             return state
         default:
             return state;
@@ -72,14 +66,7 @@ const initialState = {
     results: initialSearchState
 }
 
-// export default function rootReducer(state = initialState, action){
-//     return {
-//         movies: movies(state.movies, action),
-//         result: search(state.result, action)
-//     }
-// }
-
 export default combineReducers({
-    movies,    //movies: movies
+    movies,
     addSearchResult
 })
