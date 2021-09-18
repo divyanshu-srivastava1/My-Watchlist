@@ -9,7 +9,6 @@ class Navbar extends React.Component {
         }
     }
     handleChange=(e)=>{
-        //console.log(e.target.value)
         this.setState({
             searchString: e.target.value
         })
@@ -22,7 +21,6 @@ class Navbar extends React.Component {
         this.props.store.dispatch(clearSearch())
     }
     handleEnter=(e)=>{
-        //console.log(e);
         if(e.code==="Enter"){
             console.log(e.code)
             this.handleSearch()
@@ -30,7 +28,6 @@ class Navbar extends React.Component {
     }
     render() {
         const { result, showResult } = this.props.store.getState().addSearchResult;
-        //console.log(result)
         return (
             <div className="nav">
                 <div className='search-container'>
