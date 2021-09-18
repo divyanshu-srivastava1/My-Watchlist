@@ -12,19 +12,11 @@ class App extends React.Component{
 
     this.props.store.subscribe(()=>{
       console.log('UPDATED')
-      //localStorage.setItem('state', JSON.stringify(this.props.store.getState().movies))
-      //console.log(localStorage.state);
       this.forceUpdate()
     })
     if(JSON.parse(localStorage.getItem('state')) !== null){
       this.props.store.dispatch(addLocalStorage())
-      // this.props.store.dispatch(addMovies(JSON.parse(localStorage.getItem('state')).list))
-      // JSON.parse(localStorage.getItem('state')).favourites.forEach(ele => {
-      //   this.props.store.dispatch(addFavourite(ele))
-      // });
     }
-    // this.props.store.dispatch(addMovies(data))
-    //console.log(this.props.store.getState());
   }
   isFavourite=(movie)=>{
     const {favourites} = this.props.store.getState().movies
@@ -36,7 +28,6 @@ class App extends React.Component{
   }
   handleChangeTab=(val)=>{
     this.props.store.dispatch(setShowFavourite(val))
-    //console.log(this.props.store.getState());
   }
   render(){
     const { list, favourites, showFavourite } = this.props.store.getState().movies;  //{list, favourite}
