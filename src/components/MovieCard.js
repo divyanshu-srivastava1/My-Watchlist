@@ -6,13 +6,11 @@ class MovieCard extends React.Component {
         const {dispatch} = this.props
         dispatch(addFavourite(movie))
         localStorage.setItem('state', JSON.stringify(this.props.store.getState().movies))
-        //console.log(this.props.store.getState())
     }
     handleUnfavourite=(movie)=>{
         const {dispatch} = this.props
         dispatch(removeFavourite(movie))
         localStorage.setItem('state', JSON.stringify(this.props.store.getState().movies))
-        //console.log(this.props.store.getState())
     }
     render() {
         const {movie, isFavourite} = this.props;
